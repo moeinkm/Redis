@@ -48,5 +48,32 @@ docker run -d -p 6379:6379 --name redis-test redis
   
 ```
 CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                    NAMES
-8ff142b18118   redis     "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:6379->6379/tcp   redis-test
+xxxxxxxxxxxx   redis     "docker-entrypoint.s…"   n minutes ago   Up 8 minutes   0.0.0.0:6379->6379/tcp   redis-test
+```
+
+<div dir="rtl">
+  همچنین برا مشاهده لاگ های انجین ردیس میتوانید از دستور زیر استفاده کنید
+  
+  </div>
+  
+```
+docker logs redis-test
+```
+
+<div dir="rtl">
+  که در آن redis-test نام محفظه ردیس است.
+  
+  حالا برا وصل شدن به cli ردیس از دستور زیر استفاده میکنیم:
+  </div>
+  
+```
+docker exec -it redis-test sh
+```
+
+با این دستور بش ردیس به صورت تعاملی اجرا میشود. با وارد شدن به این محیط با اجرای دستور redis-cli میتوانید دستورات خود را روی ردیس اجرا کنید.
+
+</div>
+
+```
+# redis-cli
 ```
