@@ -4,7 +4,7 @@ a beginner guide to Redis on Docker in Persian
 <div dir="rtl">
   
   به مانند هر دیتابیس دیگری، Redis دارای یک سرور برای ذخیره داده‌ها در رم و کلاینت‌ها است که در قبال یک سرور، دستوراتی را اجرا می‌کند. برای راه‌اندازی سرور بر روی دستگاه خود، استفاده از Docker را پیشنهاد می‌کنم؛ زیرا شروع کار با آن بسیار ساده است. اگر Docker daemon را بر روی سیستم خود دارید، این دستور را اجرا کنید:
-<div>
+</div>
   
   ```
   docker pull redis:<version>
@@ -48,5 +48,5 @@ docker run -d -p 6379:6379 --name redis-test redis
   
 ```
 CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                    NAMES
- 8ff142b18118   redis     "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:6379->6379/tcp   redis-test
+8ff142b18118   redis     "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:6379->6379/tcp   redis-test
 ```
