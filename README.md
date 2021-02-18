@@ -48,5 +48,5 @@ docker run -d -p 6379:6379 --name redis-test redis
   
 ```
 CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                    NAMES
-8ff142b18118   redis     "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:6379->6379/tcp   redis-test
+ 8ff142b18118   redis     "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:6379->6379/tcp   redis-test
 ```
