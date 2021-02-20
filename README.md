@@ -1,6 +1,8 @@
 # Redis
 ## a beginner guide to Redis on Docker in Persian
-
+<p align="center">
+    <img src="https://github.com/AryanAhadinia/web_workshop/blob/redis_article/Redis/public/redis_logo.svg" alt="Redis Logo">
+</p>
 <div dir="rtl">
   redis یا remote dictionary server یک ذخیره کننده ساختمان داده است که بر روی Ram قرار میگیرد به همین دلیل آنرا in-memory Database می نامند. ساختار redis به صورت کلید مقداری key-value است به همین دلیل میتوان آن را یک نوع پایگاه داده No-SQL دانست.
   
