@@ -353,7 +353,7 @@ Sorted-set ها ساختار داده ای ما بین هش و ست است.
 4) "1384"
 5) "Khatami"
 6) "1376"
-127.0.0.1:6379> ZADD president 1368 "Hashemi" 1360 "Khamenei" 1358 "Banisadr"  // هر تعداد کلید مقدار به ست president اضافه می شود
+127.0.0.1:6379> ZADD president 1368 "Hashemi" 1360 "Khamenei" 1358 "Banisadr"  // هر تعداد کلید مقدار به ست رییس جمهور اضافه می شود
 (integer) 3
 127.0.0.1:6379> ZREMRANGEBYSCORE president 1365 1392
 (integer) 4
