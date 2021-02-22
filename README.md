@@ -117,7 +117,7 @@ $ make
 ### راه اندازی روی Ubuntu
     
     
-برای نصب ردیس روی اوبونتو ابتدا ```apt``` را بروزرسانی کنید سپس```redis-server``` را نصب کنید. فرض میکنیم تنظیمات فایروال ابتدایی و کاربر بدون دسترسی root است.
+برای نصب ردیس روی اوبونتو ابتدا ```apt``` را بروزرسانی کنیم سپس```redis-server``` را نصب کنیم. فرض میکنیم تنظیمات فایروال ابتدایی و کاربر بدون دسترسی root است.
     
     
 </div>
@@ -129,12 +129,59 @@ sudo apt install redis-server
 
 <div dir="rtl">
 
+با این دستور ردیس و نیازمندی های آن روی سیستم عامل نصب می شود.
 
+حالا فایل کانفیگ ردییس که به صورت خودکار نصب شده است را باید باز کنیم و فیلد ```supervised``` که به صورت پیش فرض ```no``` است را به ```systemd``` تغییر دهیم. برای این کار فایل کانفیگ ردیس را با هر ویرایشگری متنی که دوست دارید باز کنید.
 
 </div>
 
+```
+sudo nano /etc/redis/redis.conf
+```
+<div dir="rtl">
+ در فایل تنظیمات باز شده ```supervised``` را پیدا کنید و مقدار آن را از ```no``` به ```systemd``` تغییر دهید و آن را ذخیره کنید.
+    
+  حالا باید ردیس را ری استارت کنیم تا تغییرات تنظیمات آن اعمال شود.
+    
+</div>
+
+```
+sudo systemctl restart redis.service
+```
 <div dir="rtl">
     
+حالا فکر خوبیست که بررسی کنیم آیا ردیس به درستی در حا اجرا است.
+    
+</div>
+
+```
+sudo systemctl status redis
+```
+<div dir="rtl">
+    
+اگر ردیس بدون خطا درحال اجرا باشد خروجی دستور را به صورت زیر خواهید دید.
+    
+</div>
+
+```
+redis-server.service - Advanced key-value store
+   Loaded: loaded (/lib/systemd/system/redis-server.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2018-06-27 18:48:52 UTC; 12s ago
+     Docs: http://redis.io/documentation,
+           man:redis-server(1)
+  Process: 2421 ExecStop=/bin/kill -s TERM $MAINPID (code=exited, status=0/SUCCESS)
+  Process: 2424 ExecStart=/usr/bin/redis-server /etc/redis/redis.conf (code=exited, status=0/SUCCESS)
+ Main PID: 2445 (redis-server)
+    Tasks: 4 (limit: 4704)
+   CGroup: /system.slice/redis-server.service
+           └─2445 /usr/bin/redis-server 127.0.0.1:6379
+. . .
+```
+
+<div dir="rtl">
+
+### تعامل با ردیس 
+
 با این دستور بش ردیس به صورت تعاملی اجرا میشود. با وارد شدن به این محیط با اجرای دستور redis-cli میتوانید دستورات خود را روی ردیس اجرا کنید.
 
 </div>
