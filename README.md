@@ -180,7 +180,7 @@ redis-server.service - Advanced key-value store
 
 <div dir="rtl">
 
-### تعامل با ردیس 
+## تعامل با ردیس 
 
 با این دستور بش ردیس به صورت تعاملی اجرا میشود. با وارد شدن به این محیط با اجرای دستور redis-cli میتوانید دستورات خود را روی ردیس اجرا کنید.
 
@@ -194,6 +194,8 @@ redis-server.service - Advanced key-value store
   
   با این دستور به ردیس رو پورت مربوطه وصل میشویم
   
+### String
+  
   ساده ترین دستورات ردیس set و get هستند که بقیه دستورات بر پایه اینها اجرا می شوند که set برای یک کلید مقدار set میکند و get مقدار کلید ها را بر میگرداند.
   
   چند تا از دستورات ساده ردیس را در ادامه با هم می بینیم
@@ -201,27 +203,45 @@ redis-server.service - Advanced key-value store
   </div>
   
 ```
-127.0.0.1:6379> ping
+127.0.0.1:6379> PING
 PONG
-127.0.0.1:6379> ping hello
+127.0.0.1:6379> PONG hello
 "hello"
-127.0.0.1:6379> set me "moein"
+127.0.0.1:6379> SET me "moein"
 OK
-127.0.0.1:6379> get me
+127.0.0.1:6379> GET me
 "moein"
-127.0.0.1:6379> keys *
+127.0.0.1:6379> KEYS *
 1) "me"
-127.0.0.1:6379> exit
-# exit
+2) 127.0.0.1:6379> MSET country iran city tehran street azadi
+OK
+127.0.0.1:6379> MGET country city street
+1) "iran"
+2) "tehran"
+3) "azadi"
 ```
 
 <div dir="rtl">
 در دستورات بالا ping صحت اتصال را بررسی میکند، set مقداری برای کلید گفته شده(در اینجا me) ست میکند و get مقدار ست شده برای کلید را برمیگرداند (اگر کلید get شده وجود نداشته باشد nil بازگردانده میشود).  
-  
+
+### Integer
+
+با دستورات زیر میتوانید یک فیلد اینتیجر تعریف و آن را افزایش و کاهش دهید
   
 </div>  
 
-
+```
+127.0.0.1:6379> SET score 17
+OK
+127.0.0.1:6379> INCRBY score 3
+(integer) 20
+127.0.0.1:6379> DECR score
+(integer) 19
+127.0.0.1:6379> DECRBY score 9
+(integer) 10
+127.0.0.1:6379> GET score
+"10"
+```
 <div dir="rtl">
  
  برای دیدن لیست کامل دستورات ردیس به [http://redis.io/commands
