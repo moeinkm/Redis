@@ -1,5 +1,5 @@
 # Redis
-## a beginner guide to Redis on Docker in Persian
+## a beginner guide to Redis in Persian
 <p align="center">
     <img src="https://github.com/AryanAhadinia/web_workshop/blob/redis_article/Redis/public/redis_logo.svg" alt="Redis Logo">
 </p>
