@@ -280,6 +280,94 @@ OK
  
 </div>
 
+
+<div dir="rtl">
+ 
+### Hashes
+
+هش مپ ها به صورت کلید مقداری
+
+</div>
+```
+127.0.0.1:6379> HMSET palang id 85 name shima
+OK
+127.0.0.1:6379> HGET palang id
+"85"
+127.0.0.1:6379> HGET palang name
+"shima"
+127.0.0.1:6379> HGETALL palang
+1) "id"
+2) "85"
+3) "name"
+4) "shima"
+```
+
+<div dir="rtl">
+ 
+### Sets
+
+ست ها مجموعه های بدون ترتیب هستند
+
+</div>
+
+```
+127.0.0.1:6379> SADD mySet 2 2 2 4 8 16
+(integer) 0
+127.0.0.1:6379> SMEMBERS mySet
+1) "2"
+2) "4"
+3) "8"
+4) "16"
+127.0.0.1:6379> SISMEMBER mySet 2
+(integer) 1
+```
+
+<div dir="rtl">
+ 
+### Sorted sets
+
+Sorted-set ها ساختار داده ای ما بین هش و ست است.
+
+</div>
+
+```
+127.0.0.1:6379> ZADD president 1384 "Ahmadinejad" 1392 "Fereydoon"
+(integer) 2
+127.0.0.1:6379> ZRANGE president 0 -1
+1) "Ahmadinejad"
+2) "Fereydoon"
+127.0.0.1:6379> ZREVRANGE president 0 -1 
+1) "Fereydoon"
+2) "Ahmadinejad"
+127.0.0.1:6379> ZREVRANGE president 0 -1 withScores
+1) "Fereydoon"
+2) "1392"
+3) "Ahmadinejad"
+4) "1384"
+127.0.0.1:6379> ZADD president 1376 "Khatami"
+(integer) 1
+127.0.0.1:6379> ZREVRANGE president 0 -1 withScores  // مقادیر با اسکور هایشان برمیگردند
+1) "Fereydoon"
+2) "1392"
+3) "Ahmadinejad"
+4) "1384"
+5) "Khatami"
+6) "1376"
+127.0.0.1:6379> ZADD president 1368 "Hashemi" 1360 "Khamenei" 1358 "Banisadr"  // هر تعداد کلید مقدار به ست president اضافه می شود
+(integer) 3
+127.0.0.1:6379> ZREMRANGEBYSCORE president 1365 1392
+(integer) 4
+127.0.0.1:6379> ZRANGE president 0 -1
+1) "Banisadr"
+2) "Khamenei"
+127.0.0.1:6379> ZRANK president Banisadr
+(integer) 0
+```
+<div dir="rtl">
+
+در این دستورات مربوت به Sorted set ```ZADD``` برا اضافه کردن کلید مقدار ها به ست ```ZRANGE``` برای خروجی گرفتن از مقادیر لیست در رنج داده شده (-۱ در انتهای بازه همه مقادیر را برمیگرداند)، ```ZREVRANGE``` مقادیر را با ترتیب برعکس و ```ZREMRANGEBYSCORE``` مقادیر را در بازه کلید ها(score) حذف میکند. 
+
+</div>
 <div dir="rtl">
  
  برای دیدن لیست کامل دستورات ردیس به [http://redis.io/commands
